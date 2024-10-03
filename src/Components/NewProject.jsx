@@ -10,7 +10,20 @@ const NewProject = () => {
         </li>
       </menu>
 
-      <div className=""></div>
+      <div className="">
+        <p className="">
+          <label className="">Title</label>
+          <input className="" />
+        </p>
+        <p className="">
+          <label className="">Description</label>
+          <textarea className="" />
+        </p>
+        <p className="">
+          <label className="">Due Date</label>
+          <input className="" />
+        </p>
+      </div>
     </div>
   );
 };
