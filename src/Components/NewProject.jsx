@@ -10,6 +10,11 @@ const NewProject = ({ onCreateProject }) => {
     const enteredTitle = title.current.value;
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
+    onCreateProject({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate,
+    });
   };
 
   return (
@@ -32,7 +37,7 @@ const NewProject = ({ onCreateProject }) => {
       </menu>
 
       <div className="">
-        <Input label="Title" ref={title} />
+        <Input label="Title" ref={title} type="text" />
         <Input label="Description" textarea ref={description} />
         <Input label="Due Date" type="date" ref={dueDate} />
       </div>
