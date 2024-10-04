@@ -20,7 +20,7 @@ const NewProject = () => {
       <div className="">
         <Input label="Title" />
         <Input label="Description" textarea />
-        <Input label="Due Date" />
+        <Input label="Due Date" type="date" />
       </div>
     </div>
   );
