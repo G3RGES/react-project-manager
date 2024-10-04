@@ -23,14 +23,17 @@ function App() {
 
   //* handleAddProject IS RESPONSIBLE FOR ACTUALLY ADDING THE PROJECT ONCE I ENTER ALL THE DATA AND PRESS Save
   const handleAddProject = (projectData) => {
+    const projectId = Math.random();
+
     setProjectsState((prevState) => {
       const newProject = {
         ...projectData,
-        id: Math.random(),
+        id: projectId,
       };
 
       return {
         ...prevState,
+        selectedProjectId: undefined,
         projects: [...prevState.projects, newProject],
       };
     });
@@ -44,11 +47,12 @@ function App() {
     content = <NoProjectSelected onAddProject={handleCreateProject} />;
   }
 
-  console.log(projectsState);
-
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar onAddProject={handleCreateProject} />
+      <ProjectsSidebar
+        onAddProject={handleCreateProject}
+        projects={projectsState.projects}
+      />
       {content}
     </main>
   );
