@@ -1,10 +1,16 @@
 import React, { useRef } from "react";
 import Input from "./Input";
 
-const NewProject = () => {
+const NewProject = ({ onCreateProject }) => {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
+
+  const handleSave = () => {
+    const enteredTitle = title.current.value;
+    const enteredDescription = description.current.value;
+    const enteredDueDate = dueDate.current.value;
+  };
 
   return (
     <div className="w-[35rem] mt-16  ">
@@ -15,7 +21,11 @@ const NewProject = () => {
           </button>
         </li>
         <li className="">
-          <button className="uppercase px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950 ">
+          <button
+            onClick={handleSave}
+            className="uppercase px-6 py-2 rounded-md bg-stone-800
+            text-stone-50 hover:bg-stone-950 "
+          >
             Save
           </button>
         </li>
