@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const ProjectsSidebar = () => {
+const ProjectsSidebar = ({ onAddProject }) => {
   return (
     <aside
       className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 
@@ -11,7 +11,7 @@ const ProjectsSidebar = () => {
         Your Projects
       </h2>
       <div>
-        <Button>+ Add project</Button>
+        <Button onClick={onAddProject}>+ Add project</Button>
       </div>
 
       <ul className=""></ul>
