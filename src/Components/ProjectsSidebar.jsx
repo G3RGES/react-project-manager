@@ -14,7 +14,7 @@ const ProjectsSidebar = ({ onAddProject, projects }) => {
         <Button onClick={onAddProject}>+ Add project</Button>
       </div>
 
-      <ul className="mt-8">
+      <ul className="mt-8 ">
         {projects.map((project) => (
           <li key={project.id}>
             <button
