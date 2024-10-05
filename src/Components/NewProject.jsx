@@ -10,6 +10,15 @@ const NewProject = ({ onCreateProject }) => {
     const enteredTitle = title.current.value;
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
+
+    if (
+      enteredTitle.trim() === "" ||
+      enteredDescription.trim() === "" ||
+      enteredDueDate.trim() === ""
+    ) {
+      // show error modal
+    }
+
     onCreateProject({
       title: enteredTitle,
       description: enteredDescription,
