@@ -8,6 +8,10 @@ const NewTask = ({ addTask }) => {
   };
 
   const handleClick = () => {
+    if (enteredTask.length <= 0) {
+      alert("Please enter a task");
+      return;
+    }
     addTask(enteredTask);
     setEnteredTask("");
   };
