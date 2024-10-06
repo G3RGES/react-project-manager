@@ -7,6 +7,7 @@ import SelectedProject from "./Components/SelectedProject";
 const projects = {
   selectedProjectId: undefined,
   projects: [],
+  tasks: [],
 };
 
 function App() {
@@ -73,7 +74,7 @@ function App() {
     setProjectsState((prevState) => {
       const taskId = Math.random();
       const newTask = {
-        task: text,
+        text: text,
         projectId: prevState.selectedProjectId,
         id: taskId,
       };
@@ -84,7 +85,14 @@ function App() {
       };
     });
   };
-  const handleDeleteTask = () => {};
+  const handleDeleteTask = (id) => {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  };
 
   const selectedProject = projectsState.projects.find(
     (project) => project.id === projectsState.selectedProjectId
@@ -96,6 +104,7 @@ function App() {
       onDeleteProject={handleDeleteProject}
       onAddTask={handleAddTask}
       onDeleteTask={handleDeleteTask}
+      tasks={projectsState.tasks}
     />
   );
 
