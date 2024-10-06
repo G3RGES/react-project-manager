@@ -4,7 +4,7 @@ const NewTask = ({ addTask }) => {
   const [enteredTask, setEnteredTask] = useState("");
 
   const handleChange = (event) => {
-    setTasks(event.target.value);
+    setEnteredTask(event.target.value);
   };
 
   const handleClick = () => {
