@@ -104,8 +104,7 @@ function App() {
 
       return {
         ...prevState,
-        selectedProjectId: undefined,
-        projects: [...prevState.projects, newProject],
+        tasks: [newTask, ...prevState.tasks],
       };
     });
   };
