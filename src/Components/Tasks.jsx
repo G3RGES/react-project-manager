@@ -20,7 +20,7 @@ const Tasks = ({ tasks, addTask, deleteTask }) => {
               <span className="">{task.text}</span>
               <button
                 className="text-stone-700 hover:text-red-500"
-                onClick={deleteTask}
+                onClick={() => deleteTask(task.id)}
               >
                 Delete
               </button>
