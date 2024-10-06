@@ -69,6 +69,23 @@ function App() {
     });
   };
 
+  const handleAddTask = (text) => {
+    setProjectsState((prevState) => {
+      const taskId = Math.random();
+      const newTask = {
+        task: text,
+        projectId: prevState.selectedProjectId,
+        id: taskId,
+      };
+
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks],
+      };
+    });
+  };
+  const handleDeleteTask = () => {};
+
   const selectedProject = projectsState.projects.find(
     (project) => project.id === projectsState.selectedProjectId
   );
@@ -92,23 +109,6 @@ function App() {
   } else if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected onAddProject={handleCreateProject} />;
   }
-
-  const handleAddTask = (text) => {
-    setProjectsState((prevState) => {
-      const taskId = Math.random();
-      const newTask = {
-        task: text,
-        projectId: prevState.selectedProjectId,
-        id: taskId,
-      };
-
-      return {
-        ...prevState,
-        tasks: [newTask, ...prevState.tasks],
-      };
-    });
-  };
-  const handleDeleteTask = () => {};
 
   return (
     <main className="h-screen my-8 flex gap-8">
