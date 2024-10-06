@@ -1,7 +1,7 @@
 import React from "react";
 import NewTask from "./NewTask";
 
-const Tasks = ({ addTask, deleteTask }) => {
+const Tasks = ({ tasks, addTask, deleteTask }) => {
   return (
     <section className="">
       <h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
