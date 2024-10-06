@@ -24,9 +24,8 @@ function App() {
 
   //* handleAddProject IS RESPONSIBLE FOR ACTUALLY ADDING THE PROJECT ONCE I ENTER ALL THE DATA AND PRESS Save
   const handleAddProject = (projectData) => {
-    const projectId = Math.random();
-
     setProjectsState((prevState) => {
+      const projectId = Math.random();
       const newProject = {
         ...projectData,
         id: projectId,
@@ -78,6 +77,8 @@ function App() {
     <SelectedProject
       project={selectedProject}
       onDeleteProject={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
     />
   );
 
@@ -91,6 +92,24 @@ function App() {
   } else if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected onAddProject={handleCreateProject} />;
   }
+
+  const handleAddTask = (text) => {
+    setProjectsState((prevState) => {
+      const taskId = Math.random();
+      const newTask = {
+        task: text,
+        projectId: prevState.selectedProjectId,
+        id: taskId,
+      };
+
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject],
+      };
+    });
+  };
+  const handleDeleteTask = () => {};
 
   return (
     <main className="h-screen my-8 flex gap-8">
